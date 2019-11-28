@@ -1,0 +1,29 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+group = 'com.storage'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    compile('com.dropbox.core:dropbox-core-sdk:3.0.4')
+    compile('com.google.api-client:google-api-client:1.22.0')
+    compile('com.google.apis:google-api-services-drive:v3-rev59-1.22.0')
+    compile('com.box:box-java-sdk:2.20.1')
+    compile('commons-io:commons-io:2.6')
+}
+
+test {
+    useJUnitPlatform()
+}
